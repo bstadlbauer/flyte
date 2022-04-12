@@ -2,8 +2,6 @@ redis:
   # --- enable or disable Redis Statefulset installation
   enabled: false
 
-<<<<<<< HEAD
-=======
 webhook:
   enabled: false
   # -- Service settings for the webhook
@@ -11,7 +9,6 @@ webhook:
     annotations:
       projectcontour.io/upstream-protocol.h2c: grpc
     type: ClusterIP
->>>>>>> origin/master
 #
 # POSTGRES SETTINGS
 #
@@ -91,11 +88,7 @@ minio:
 
 redoc:
   # --- enable or disable Minio deployment installation
-<<<<<<< HEAD
-  enabled: true
-=======
   enabled: false
->>>>>>> origin/master
   # -- Replicas count for Minio deployment
   replicaCount: 1
   image:
@@ -133,7 +126,7 @@ redoc:
 
 contour:
   # --- enable or disable Contour deployment installation
-  enabled: true
+  enabled: false
   # -- Replicas count for Contour deployment
   replicaCount: 1
   contour:

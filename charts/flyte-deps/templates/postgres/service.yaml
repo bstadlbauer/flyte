@@ -15,10 +15,6 @@ spec:
   ports:
   - name: postgres
     port: 5432
-<<<<<<< HEAD
-=======
-    nodePort: 30089
->>>>>>> origin/master
     protocol: TCP
     targetPort: postgres
   selector: {{ include "postgres.selectorLabels" . | nindent 4 }}
