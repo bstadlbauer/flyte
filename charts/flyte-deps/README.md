@@ -14,11 +14,19 @@ A Helm chart for Flyte dependency
 
 ### SANDBOX INSTALLATION:
 - [Install helm 3](https://helm.sh/docs/intro/install/)
+<<<<<<< HEAD
 - Install Flyte sandbox:
 
 ```bash
 helm repo add flyte https://flyteorg.github.io/flyte
 helm install -n flyte -f values.yaml --create-namespace flyte flyte/flyte
+=======
+- Install Flyte dependency:
+
+```bash
+helm repo add flyte https://flyteorg.github.io/flyte
+helm install -n flyte --create-namespace flyte flyte/flyte-deps
+>>>>>>> origin/master
 ```
 
 Customize your installation by changing settings in a new file `values-sandbox.yaml`.
@@ -31,11 +39,19 @@ helm diff upgrade -f values-sandbox.yaml flyte .
 
 Then apply your changes:
 ```bash
+<<<<<<< HEAD
 helm upgrade -f values-sandbox.yaml flyte .
 ```
 
 #### Alternative: Generate raw kubernetes yaml with helm template
 - `helm template --name-template=flyte-sandbox . -n flyte -f values-sandbox.yaml > flyte_generated_sandbox.yaml`
+=======
+helm upgrade -f values.yaml flyte .
+```
+
+#### Alternative: Generate raw kubernetes yaml with helm template
+- `helm template --name-template=flyte-deps . -n flyte   > flyte_generated_sandbox.yaml`
+>>>>>>> origin/master
 - Deploy the manifest `kubectl apply -f flyte_generated_sandbox.yaml`
 
 - When all pods are running - run end2end tests: `kubectl apply -f ../end2end/tests/endtoend.yaml`
@@ -101,7 +117,11 @@ helm upgrade -f values-sandbox.yaml flyte .
 | postgres.tolerations | list | `[]` | tolerations for Postgres deployment |
 | redis.enabled | bool | `false` | - enable or disable Redis Statefulset installation |
 | redoc.affinity | object | `{}` | affinity for Minio deployment |
+<<<<<<< HEAD
 | redoc.enabled | bool | `true` | - enable or disable Minio deployment installation |
+=======
+| redoc.enabled | bool | `false` | - enable or disable Minio deployment installation |
+>>>>>>> origin/master
 | redoc.image.pullPolicy | string | `"IfNotPresent"` | Docker image pull policy |
 | redoc.image.repository | string | `"docker.io/redocly/redoc"` | Docker image for Minio deployment |
 | redoc.image.tag | string | `"latest"` | Docker image tag |
@@ -115,3 +135,8 @@ helm upgrade -f values-sandbox.yaml flyte .
 | redoc.tolerations | list | `[]` | tolerations for Minio deployment |
 | sparkoperator | object | `{"enabled":false}` | Optional: Spark Plugin using the Spark Operator |
 | sparkoperator.enabled | bool | `false` | - enable or disable Sparkoperator deployment installation |
+<<<<<<< HEAD
+=======
+| webhook.enabled | bool | `false` |  |
+| webhook.service | object | `{"annotations":{"projectcontour.io/upstream-protocol.h2c":"grpc"},"type":"ClusterIP"}` | Service settings for the webhook |
+>>>>>>> origin/master
